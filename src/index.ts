@@ -12,7 +12,7 @@ app.get('/', async (c) => {
     await c.env.KV_STORE.put('count', count.toString());
 
     return c.html(
-        `<link rel="stylesheet" href="https://svenlaa.com/style.css"><title>hono-demo by Svenlaa</title><h1><a style="--color:var(--stone-950);text-decoration:none" href="https://github.com/Svenlaa/hono-demo">hono-demo</a></h1>a coding exploration by <a href="https://svenlaa.com">Svenlaa</a><p>you are visitor number ${count}.</p>`
+        `<meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="stylesheet" href="https://svenlaa.com/style.css"><title>hono-demo by Svenlaa</title><h1><a style="--color:var(--stone-950);text-decoration:none" href="https://github.com/Svenlaa/hono-demo">hono-demo</a></h1>a coding exploration by <a href="https://svenlaa.com">Svenlaa</a><p>you are visitor number ${count}.</p>`
     );
 });
 
