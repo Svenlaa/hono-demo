@@ -33,6 +33,10 @@ app.get('/', async (c) => {
     );
 });
 
+app.get('/204', async (c) => {
+    return c.status(204);
+});
+
 app.get('/api/count', async (c) => {
     const res = await c.env.DB.prepare('SELECT count FROM counts').first();
     return c.json(res);
