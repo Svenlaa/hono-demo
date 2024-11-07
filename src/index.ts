@@ -34,7 +34,7 @@ app.get('/', async (c) => {
 });
 
 app.get('/204', async (c) => {
-    return c.status(204);
+    return c.text(null, 204)
 });
 
 app.get('/api/count', async (c) => {
