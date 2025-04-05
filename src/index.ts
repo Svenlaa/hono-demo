@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { ContentfulStatusCode } from 'hono/utils/http-status';
 
 type Bindings = {
     DB: D1Database;
@@ -33,7 +34,7 @@ app.get('/', async (c) => {
 });
 
 app.get('/204', async (c) => {
-    return c.text('', 204);
+    return c.text('', 204 as ContentfulStatusCode);
 });
 
 app.get('/api/count', async (c) => {
