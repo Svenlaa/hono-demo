@@ -1,7 +1,6 @@
 import { Hono } from 'hono';
 
 type Bindings = {
-    KV_STORE: KVNamespace;
     DB: D1Database;
 };
 
@@ -22,7 +21,7 @@ app.get('/', async (c) => {
     if (res === null) {
         const res = await c.env.DB.prepare('SELECT count FROM counts').first();
         if (res === null) {
-            count = +((await c.env.KV_STORE.get('count')) ?? '0') + 1;
+            count = 1;
             await c.env.DB.exec(`INSERT INTO counts (count) VALUES (${count})`);
         }
     }
@@ -34,7 +33,7 @@ app.get('/', async (c) => {
 });
 
 app.get('/204', async (c) => {
-    return c.text(null, 204)
+    return c.text('', 204);
 });
 
 app.get('/api/count', async (c) => {
